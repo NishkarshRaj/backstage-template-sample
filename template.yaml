@@ -87,6 +87,8 @@ spec:
           type: string
           ui:field: RepoUrlPicker
           ui:options:
+            requestUserCredentials:
+              secretsKey: USER_OAUTH_TOKEN
             allowedHosts:
               - github.com
               - dev.azure.com
@@ -117,6 +119,7 @@ spec:
         allowedHosts: ['github.com', 'dev.azure.com']
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
+        token: ${{ secrets.USER_OAUTH_TOKEN }}
 
     # The final step is to register our new component in the catalog.
     - id: register
